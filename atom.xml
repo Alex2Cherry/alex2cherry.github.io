@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Water Drop]]></title>
+  <link href="http://alex2cherry.github.io/atom.xml" rel="self"/>
+  <link href="http://alex2cherry.github.io/"/>
+  <updated>2015-08-02T10:47:44+08:00</updated>
+  <id>http://alex2cherry.github.io/</id>
+  <author>
+    <name><![CDATA[alexliu1354@gmail.com]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
