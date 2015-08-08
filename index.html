@@ -83,8 +83,8 @@
 
 <time class='entry-date' datetime='2015-08-02T11:26:22+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>11:26 am</span></time>
         
-           | <a href="/blog/2015/08/02/set-up-github-bog-on-ubuntu-14-04/#disqus_thread"
-             data-disqus-identifier="http://alex2cherry.github.io/blog/2015/08/02/set-up-github-bog-on-ubuntu-14-04/">Comments</a>
+        
+           | <a href="/blog/2015/08/02/set-up-github-bog-on-ubuntu-14-04/#comments">Comments</a>
         
       </p>
     
@@ -99,194 +99,12 @@
 
 <hr />
 
-<h2>部署Octopress博客系统</h2>
-
-<h3>1. 安装ruby。</h3>
-
-<p>Octopress是基于jekyll的，而jekyll是用ruby开发的，ubuntu14.04 LTS上默认是没有安装ruby环境的，需要自己安装。<br/>
-命令： <code>sudo apt-get install ruby ruby1.9.1-dev</code></p>
-
-<h3>2. 安装bundler。</h3>
-
-<p> Bundler使用Ruby语言写的，通过跟踪和安装运行Ruby项目所需要的确切的gem和版本,为Ruby项目提供了完整的可运行环境。安装bundler的目的是为了自动安装Octopress所依赖的软件包，它通过安装应用程序的Gemfile中的所有gem来做到这一点。由于GFW的原因，会出现无法链接gem源的情况，建议将gem源切换为taobao的源。操作命令如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>gem <span class="nb">source</span> -r https://rubygems.org/ <span class="c">#删除官方源  </span>
-</span><span class='line'>gem <span class="nb">source</span> -a http://ruby.taobao.org/ <span class="c">#添加淘宝源  </span>
-</span><span class='line'>gem install bundler
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<h3>3. 安装Octopress。</h3>
-
-<p>先从github上下载源码，源码中有Gemfile文件来指示所有依赖，使用bundle便可安装所有依赖了。操作命令如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#下载源码  </span>
-</span><span class='line'>git clone git://github.com/imathis/octopress.git octopress
-</span><span class='line'><span class="nb">cd </span>octopress
-</span><span class='line'><span class="c">#安装依赖  </span>
-</span><span class='line'>bundle install
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<h3>4. 安装octopress默认主题。</h3>
-
-<p>使用octopress默认的主题作为博客的主题样式。命令：<code>rake install</code><br/>
-在我的环境中，执行<code>rake install</code>后报错：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>var/lib/gems/1.9.1/gems/execjs-2.5.2/lib/execjs/runtimes.rb:48:in <span class="sb">`</span>autodetect<span class="err">&#39;</span>: Could not find a JavaScript runtime. See https://github.com/rails/execjs <span class="k">for</span> a list of available runtimes. <span class="o">(</span>ExecJS::RuntimeUnavailable<span class="o">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>拿错误信息在网上搜了一下，说是缺少运行JavaScript的环境，尝试了多种方案，最终安装nodejs解决的。命令：<code>sudo apt-get install nodejs</code></p>
-
-<h3>5. 配置octopress参数。</h3>
-
-<p>包括配置Main  config，设置博客的标题，描述等参数；默认的主题中，需要加载twitter和google的链接，由于GFW的原因，会造成页面load很慢，为提升博客的访问速度，可以关闭twitter的链接，将google的CSS和字体换成国内的链接（360提供的useso.com）。<br/>
-Main config参数位于octopress根目录下的_config.yml文件中，配置样例：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>url: http://alex2cherry.github.io
-</span><span class='line'>title: Water Drop
-</span><span class='line'>subtitle: 有才而性缓定属大才,有智而气和斯为大智.
-</span><span class='line'>author: alexliu1354@gmail.com
-</span><span class='line'>simple_search: https://www.google.com/search
-</span><span class='line'>description: Alex Lius personal blog.
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-另外，将文件中twitter相关的配置删除。</p>
-
-<p>google字体和CSS涉及到的配置文件为：<code>source/_includes/head.html</code>，<code>source/_includes/custom/head.html</code>。具体做法是把<code>fonts.googleapis.com</code>替换为<code>fonts.useso.com</code>；将类似<code>ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js</code>替换为<code>ajax.useso.com/ajax/libs/jquery/1.7.2/jquery.min.js</code>。</p>
-
-<h3>6. 将博客部署到github。</h3>
-
-<ul>
-<li>在<a href="www.github.com">www.github.com</a>注册一个帐号;</li>
-<li>新建一个仓库，名为<code>your_user_name.github.io</code>;</li>
-<li>在octopress根目录执行<code>rake setup_github_pages</code>。按照要求输入仓库地址等，这个命令会在跟目录下新建_deploy目录，这个会push到仓库的master分支，也就是访问博客的文件。</li>
-<li>生成博客并部署到github。命令如下：</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake generate
-</span><span class='line'>rake deploy
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>7. 将全部源码提交到github，便于在其它设备上也可以发布博客。</h3>
-
-<p>前面提到的deploy只是部署博客代码到github上面，整个octopress并没有提交，为了保证在任何地方随时发布博客，而无需再次详细配置以保证跟github上的最新代码一致，可以将当前octopress的源码存放到github的source分支下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add .
-</span><span class='line'>git commit -m <span class="s1">&#39;Initial source commit&#39;</span>
-</span><span class='line'>git push origin <span class="nb">source</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<h2>发布博客</h2>
-
-<p>通过下面的步骤可以新建一篇博客，编写内容，发布到github pages上。</p>
-
-<h3>1. 新建一篇博文。</h3>
-
-<p>命令：<code>rake new_post["title"]</code>,样例：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake new_post<span class="o">[</span><span class="s2">&quot;Zombie Ninjas Attack: A survivor&#39;s retrospective&quot;</span><span class="o">]</span>
-</span><span class='line'><span class="c"># 这条命令会创建 source/_posts/2011-07-03-zombie-ninjas-attack-a-survivors-retrospective.markdown文件  </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>
-新建的文章被放在<code>source/_posts</code>目录下，并按照Jekyll的命名规则命名：<code>YYYY-MM-DD-post-title.markdown</code>。这个名字会被用于生成url且日期会被用于为文章按时间排序。文件内容如下：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>---
-</span><span class='line'>layout: post
-</span><span class='line'>title: <span class="s2">&quot;Zombie Ninjas Attack: A survivor&#39;s retrospective&quot;</span>
-</span><span class='line'>date: 2011-07-03 5:59
-</span><span class='line'>comments: <span class="nb">true  </span>
-</span><span class='line'>external-url:
-</span><span class='line'>categories:
-</span><span class='line'>---
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>你可以在这里设置评论功能开关，设置分类。如果你的博客有多个作者共用，你可以在文件中添加【author:Your Name】。如果你在编辑一个草稿，你可以添加【published： false】以使其在生成博客内容时被自动忽略。<br/>
-直接编辑markdown文件，编写博客内容。</p>
-
-<h3>2. 本地生成 &amp; 预览</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>rake generate   <span class="c"># 在公开目录中生成博文和页面  </span>
-</span><span class='line'>rake preview    <span class="c"># 在浏览器中输入 [http://localhost:4000](http://localhost:4000) 即可预览。  </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<h3>3. 部署到github，同时上传源码</h3>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='bash'><span class='line'>git add .
-</span><span class='line'>git commit -am <span class="s2">&quot;Some comment here.&quot;</span>
-</span><span class='line'>git push origin <span class="nb">source  </span>
-</span><span class='line'>rake deploy
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
-<h2>参考链接</h2>
-
-<ol>
-<li><a href="http://fzyz999.github.io/blog/2013/04/10/ubuntushang-shi-yong-octopressjian-li-bo-ke/">Ubuntu上使用octopress+github建立个人博客</a></li>
-<li><a href="http://ju.outofmemory.cn/entry/98762">利用octopress部署博客到github</a></li>
-<li><a href="http://www.chinaz.com/web/2014/0610/354852.shtml">谷歌被墙导致WordPress网站变慢的解决办法</a></li>
-<li><a href="http://www.open-open.com/lib/view/open1433493880510.html">Ubuntu14.04+Jekyll+Github Pages搭建静态博客</a></li>
-<li><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></li>
-</ol>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/08/02/set-up-github-bog-on-ubuntu-14-04/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -320,7 +138,17 @@ Main config参数位于octopress根目录下的_config.yml文件中，配置样�
 <section id="comment_sidebar">
 <h1>Recent Comments</h1>
 
-<script type="text/javascript" src="http://httpalex2cherrygithubio.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=20"></script><a href="http://disqus.com/">Powered by Disqus</a>
+<ul class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70"></ul>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"alex2cherry"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
 
 </section>
 
@@ -369,19 +197,6 @@ Main config参数位于octopress根目录下的_config.yml文件中，配置样�
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'alex2cherry';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 

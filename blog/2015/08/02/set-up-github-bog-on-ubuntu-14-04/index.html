@@ -80,8 +80,8 @@
 
 <time class='entry-date' datetime='2015-08-02T11:26:22+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>11:26 am</span></time>
         
-           | <a href="#disqus_thread"
-             data-disqus-identifier="http://alex2cherry.github.io">Comments</a>
+        
+           | <a href="#comments">Comments</a>
         
       </p>
     
@@ -95,6 +95,9 @@
 <p>本地环境：Ubuntu 14.04。</p>
 
 <hr />
+
+<!--more-->
+
 
 <h2>部署Octopress博客系统</h2>
 
@@ -280,6 +283,7 @@ Main config参数位于octopress根目录下的_config.yml文件中，配置样�
 <li><a href="http://www.chinaz.com/web/2014/0610/354852.shtml">谷歌被墙导致WordPress网站变慢的解决办法</a></li>
 <li><a href="http://www.open-open.com/lib/view/open1433493880510.html">Ubuntu14.04+Jekyll+Github Pages搭建静态博客</a></li>
 <li><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></li>
+<li><a href="http://blog.csdn.net/iosdevtip/article/details/47179709">为 Octopress 添加多说评论系统</a></li>
 </ol>
 
 </div>
@@ -323,9 +327,23 @@ Main config参数位于octopress根目录下的_config.yml文件中，配置样�
   </footer>
 </article>
 
+
   <section>
     <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <div id="comments" aria-live="polite"><!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-title="在Ubuntu 14.04上搭建github Pages博客"></div>
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"alex2cherry"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+<!-- Duoshuo Comment END -->
 </div>
   </section>
 
@@ -353,7 +371,17 @@ Main config参数位于octopress根目录下的_config.yml文件中，配置样�
 <section id="comment_sidebar">
 <h1>Recent Comments</h1>
 
-<script type="text/javascript" src="http://httpalex2cherrygithubio.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=20"></script><a href="http://disqus.com/">Powered by Disqus</a>
+<ul class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70"></ul>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"alex2cherry"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
 
 </section>
 
@@ -403,22 +431,6 @@ Main config参数位于octopress根目录下的_config.yml文件中，配置样�
 
 </footer>
   
-
-<script type="text/javascript">
-      var disqus_shortname = 'alex2cherry';
-      
-        
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://alex2cherry.github.io/blog/2015/08/02/set-up-github-bog-on-ubuntu-14-04/';
-        var disqus_url = 'http://alex2cherry.github.io/blog/2015/08/02/set-up-github-bog-on-ubuntu-14-04/';
-        var disqus_script = 'embed.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
 
 
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Water Drop]]></title>
   <link href="http://alex2cherry.github.io/atom.xml" rel="self"/>
   <link href="http://alex2cherry.github.io/"/>
-  <updated>2015-08-08T14:44:21+08:00</updated>
+  <updated>2015-08-08T16:40:47+08:00</updated>
   <id>http://alex2cherry.github.io/</id>
   <author>
     <name><![CDATA[alexliu1354@gmail.com]]></name>
@@ -25,6 +25,9 @@
 <p>本地环境：Ubuntu 14.04。</p>
 
 <hr />
+
+<!--more-->
+
 
 <h2>部署Octopress博客系统</h2>
 
@@ -210,6 +213,7 @@ Main config参数位于octopress根目录下的_config.yml文件中，配置样�
 <li><a href="http://www.chinaz.com/web/2014/0610/354852.shtml">谷歌被墙导致WordPress网站变慢的解决办法</a></li>
 <li><a href="http://www.open-open.com/lib/view/open1433493880510.html">Ubuntu14.04+Jekyll+Github Pages搭建静态博客</a></li>
 <li><a href="http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/">如何搭建一个独立博客——简明Github Pages与Hexo教程</a></li>
+<li><a href="http://blog.csdn.net/iosdevtip/article/details/47179709">为 Octopress 添加多说评论系统</a></li>
 </ol>
 
 ]]></content>
