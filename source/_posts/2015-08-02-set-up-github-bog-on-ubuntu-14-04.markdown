@@ -5,7 +5,7 @@ date: 2015-08-02 11:26:22 +0800
 comments: true
 categories: 搭建环境
 ---  
-## 背景 ##  
+## 背景 
 
 > github是一个全球性的代码托管平台，支持github Pages服务。这个服务可以为个人、组织或项目建立静态主页。github为用户提供项目托管、git、pages等用于项目开发的功能。我们使用的就是其pages服务。相对于其他提供免费博客的网站，github的最大优点是无任何广告且提供git版本管理工具对博客进行管理。但劣势是需要一定的命令行操作，对于普通用户有一定门槛。也因此，octopress+github被成为最适合hack的建博方式。Octopress是一款优秀的静态化博客系统，官方将它简称为：“A blogging framework for hackers.”，也就是Octopress只适合那些经常玩Linux、写代码的朋友用的博客系统。  
 
@@ -13,7 +13,7 @@ categories: 搭建环境
 
 ----------  
 
-## 部署Octopress博客系统 ##  
+## 部署Octopress博客系统   
 
 1. **安装ruby。** Octopress是基于jekyll的，而jekyll是用ruby开发的，ubuntu14.04 LTS上默认是没有安装ruby环境的，需要自己安装。  
 命令： `sudo apt-get install ruby ruby1.9.1-dev`  
@@ -80,7 +80,7 @@ git push origin source
 
 ----------  
 
-## 发布博客 ##  
+## 发布博客   
 通过下面的步骤可以新建一篇博客，编写内容，发布到github pages上。  
 
 1. **新建一篇博文。**   
@@ -122,7 +122,7 @@ git push origin source
 rake deploy  
 ```
 
-## 参考链接 ##  
+## 参考链接   
 
  1. [Ubuntu上使用octopress+github建立个人博客](http://fzyz999.github.io/blog/2013/04/10/ubuntushang-shi-yong-octopressjian-li-bo-ke/)  
  2. [利用octopress部署博客到github](http://ju.outofmemory.cn/entry/98762)  
