@@ -4,7 +4,7 @@
   <title><![CDATA[Water Drop]]></title>
   <link href="http://alex2cherry.github.io/atom.xml" rel="self"/>
   <link href="http://alex2cherry.github.io/"/>
-  <updated>2015-08-08T16:40:47+08:00</updated>
+  <updated>2015-08-08T18:48:34+08:00</updated>
   <id>http://alex2cherry.github.io/</id>
   <author>
     <name><![CDATA[alexliu1354@gmail.com]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[记录一些使用git过程的问题]]></title>
+    <link href="http://alex2cherry.github.io/blog/2015/08/08/some-marks-for-git/"/>
+    <updated>2015-08-08T18:30:55+08:00</updated>
+    <id>http://alex2cherry.github.io/blog/2015/08/08/some-marks-for-git</id>
+    <content type="html"><![CDATA[<h3>1. 配置了github的sshkey，git push提交代码到远程库的时候，仍然提示输入用户名口令，为何？</h3>
+
+<blockquote><p>将 HTTPS 协议的 remote 地址，改成 SSH(git@github.com:name/code.git) 的就行了。
+版本库的SSH方式和HTTPS方式是不同的，表面上是url信息的不同，但是，实际的认证机制也是不同的。当建立了本机密钥之后，使用ssh方式实际上是不需要再次认证的，而https则每次需要输入密码。</p></blockquote>
+
+<!--more-->
+
+
+<p><strong>解决办法</strong><br/>
+编辑项目目录下的<code>.git/config</code>文件，找到:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[remote "origin"]  
+</span><span class='line'>    url =https://github.com/hit9/hit9.github.com.git  
+</span><span class='line'>    fetch = +refs/heads/*:refs/remotes/origin/*  </span></code></pre></td></tr></table></div></figure>
+
+
+<p>把url处改成ssh地址:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[remote "origin"]  
+</span><span class='line'>    url =git@github.com:hit9/hit9.github.com.git  
+</span><span class='line'>    fetch = +refs/heads/*:refs/remotes/origin/*  </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>2. 不小心将一个目录下所以文件都用git add添加到本地git库中了，需要删除，如何操作？</h3>
+
+<p><strong>解决办法</strong>
+直接将该目标的本地仓库文件(.git目录)删除：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>rm -rf .git
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[在Ubuntu 14.04上搭建github Pages博客]]></title>
