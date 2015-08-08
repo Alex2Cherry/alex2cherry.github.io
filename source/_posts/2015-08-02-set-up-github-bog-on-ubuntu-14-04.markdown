@@ -3,15 +3,16 @@ layout: post
 title: "在Ubuntu 14.04上搭建github pages博客"
 date: 2015-08-02 11:26:22 +0800
 comments: true
-categories: 搭建环境
+categories: Octopress
 ---  
 ## 背景
 
-> github是一个全球性的代码托管平台，支持github Pages服务。这个服务可以为个人、组织或项目建立静态主页。github为用户提供项目托管、git、pages等用于项目开发的功能。我们使用的就是其pages服务。相对于其他提供免费博客的网站，github的最大优点是无任何广告且提供git版本管理工具对博客进行管理。但劣势是需要一定的命令行操作，对于普通用户有一定门槛。也因此，octopress+github被成为最适合hack的建博方式。Octopress是一款优秀的静态化博客系统，官方将它简称为：“A blogging framework for hackers.”，也就是Octopress只适合那些经常玩Linux、写代码的朋友用的博客系统。  
+> github是一个全球性的代码托管平台，支持github Pages服务。这个服务可以为个人、组织或项目建立静态主页。github为用户提供项目托管、git、pages等用于项目开发的功能。我们使用的就是其pages服务。相对于其他提供免费博客的网站，github的最大优点是无任何广告且提供git版本管理工具对博客进行管理。但劣势是需要一定的命令行操作，对于普通用户有一定门槛。Octopress是一款优秀的静态化博客系统，官方将它简称为：“A blogging framework for hackers.”，也就是Octopress只适合那些经常玩Linux、写代码的朋友用的博客系统。  
 
 本地环境：Ubuntu 14.04。  
 
 ----------  
+<!--more-->
 
 ## 部署Octopress博客系统
 
@@ -116,7 +117,7 @@ categories:
 
 ```bash
 rake generate   # 在公开目录中生成博文和页面  
-rake preview    # 在浏览器中输入 http://localhost:4000 即可预览。  
+rake preview    # 在浏览器中输入 [http://localhost:4000](http://localhost:4000) 即可预览。  
 ```  
 
 ### 3. 部署到github，同时上传源码  
@@ -135,3 +136,4 @@ rake deploy
  3.  [谷歌被墙导致WordPress网站变慢的解决办法](http://www.chinaz.com/web/2014/0610/354852.shtml)  
  4. [Ubuntu14.04+Jekyll+Github Pages搭建静态博客](http://www.open-open.com/lib/view/open1433493880510.html)  
  5. [如何搭建一个独立博客——简明Github Pages与Hexo教程](http://cnfeat.com/2014/05/10/2014-05-11-how-to-build-a-blog/)  
+ 6. [为 Octopress 添加多说评论系统](http://blog.csdn.net/iosdevtip/article/details/47179709)  
