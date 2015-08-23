@@ -1,0 +1,11 @@
+---
+layout: post
+title: "为已经存在的github blog配置本地octopress环境"
+date: 2015-08-23 17:14:18 +0800
+comments: true
+categories: octopress
+---
+
+## 为已经存在的github blog配置本地octopress环境
+
+参考网络文档进行操作：[http://www.360doc.com/content/12/0216/16/1016783_187128091.shtml](http://www.360doc.com/content/12/0216/16/1016783_187128091.shtml)
